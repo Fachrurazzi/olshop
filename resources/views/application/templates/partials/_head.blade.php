@@ -16,5 +16,6 @@
         <link href="{{ asset('admin-assets/assets/css/icons.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('admin-assets/assets/css/style.css') }}" rel="stylesheet" type="text/css">
         <script src="{{ asset('admin-assets/assets/js/jquery.min.js') }}"></script>
+        @stack('css')
 
     </head>

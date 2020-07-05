@@ -2,63 +2,63 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+    <div class="columns is-centered mt-6">
+        <div class="column is-two-fifths box">
+            <h1 class="is-size-3 mb-4">Reset Password</h1>
 
-                <div class="card-body">
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+<div class="field">
+                    <label for="" class="label">E-mail Address</label>
+                    <p class="control has-icons-left">
+                    <input type="email" name="email" class="input {{ $errors->has('email') ? 'is-danger' : '' }}" placeholder="Email" value="{{ old('email') }}">
+                    <span class="icon is-small is-left">
+                        <i class="fa fa-envelope"></i>
+                    </span>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    @if ($errors->has('email'))
+                        <p class="help is-danger">{{ $errors->first('email') }}</p>
+                    @endif
                 </div>
-            </div>
+
+                <div class="field">
+                    <label for="" class="label">Password</label>
+                    <p class="control has-icons-left">
+                    <input type="password" name="password" class="input {{ $errors->has('password') ? 'is-danger' : '' }}" placeholder="Password">
+                    <span class="icon is-small is-left">
+                        <i class="fa fa-lock"></i>
+                    </span>
+
+                    @if ($errors->has('password'))
+                        <p class="help is-danger">{{ $errors->first('password') }}</p>
+                    @endif
+                </div>
+
+                <div class="field">
+                    <label for="" class="label">Confirm Password</label>
+                    <p class="control has-icons-left">
+                    <input type="password" name="password_confirmation" class="input {{ $errors->has('password_confirmation') ? 'is-danger' : '' }}" placeholder="Confirm Password">
+                    <span class="icon is-small is-left">
+                        <i class="fa fa-lock"></i>
+                    </span>
+
+                    @if ($errors->has('password_confirmation'))
+                        <p class="help is-danger">{{ $errors->first('password_confirmation') }}</p>
+                    @endif
+                </div>
+
+                <div class="field">
+                    <button type="submit" class="button is-primary">
+                        <span class="icon is-small">
+                            <i class="fa fa-paper-plane"></i>
+                        </span>
+                        <span>Reset Password</span>
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

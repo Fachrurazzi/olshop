@@ -16,6 +16,8 @@
         <script src="{{ asset('admin-assets/assets/plugins/morris/morris.min.js') }}"></script>
         <script src="{{ asset('admin-assets/assets/plugins/raphael/raphael-min.js') }}"></script>
 
+        @stack('scripts')
+
         <!-- dashboard -->
         <script src="{{ asset('admin-assets/assets/pages/dashboard.js') }}"></script>
 
